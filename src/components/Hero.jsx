@@ -177,7 +177,7 @@ export default function Hero() {
           </MagneticButton>
 
           <MagneticButton
-            href="#services"
+            href="#work"
             className={`flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base border transition-all duration-300 w-full sm:w-auto justify-center ${
               isDark
                 ? 'border-white/14 text-white hover:bg-white/7 hover:border-white/28'
