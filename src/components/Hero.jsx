@@ -129,7 +129,7 @@ export default function Hero() {
       </div>
 
       {/* ═══ CONTENT ═══ */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
 
         {/* Badge */}
         <motion.div
@@ -147,7 +147,7 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           variants={fadeUp} initial="hidden" animate="show" custom={1}
-          className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tight mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}
+          className={`text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tight mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}
         >
           {t.hero.headline1}{' '}
           <span className="gradient-text">{t.hero.headline2}</span>

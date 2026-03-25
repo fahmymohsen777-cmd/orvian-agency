@@ -14,10 +14,10 @@ export default function Contact() {
   }`
 
   return (
-    <section id="contact" className="py-28 px-6 relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-28 px-4 sm:px-6 relative overflow-hidden">
       <div className={`absolute inset-0 pointer-events-none ${isDark ? 'bg-gradient-to-b from-transparent via-blue-950/10 to-transparent' : 'bg-gradient-to-b from-transparent via-blue-50/50 to-transparent'}`} />
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left info */}
           <div>
             <motion.p
@@ -66,7 +66,7 @@ export default function Contact() {
             className={`p-8 rounded-2xl ${isDark ? 'card-dark' : 'card-light'}`}
           >
             <form className="space-y-4" onSubmit={e => e.preventDefault()}>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Name</label>
                   <input type="text" placeholder="John Doe" className={inputClass} />
