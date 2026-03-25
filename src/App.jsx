@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TrustedBy from './components/TrustedBy'
 import Services from './components/Services'
+import OurWork from './components/OurWork'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { useTheme } from './contexts/ThemeContext'
@@ -16,6 +17,7 @@ export default function App() {
         <Hero />
         <TrustedBy />
         <Services />
+        <OurWork />
         <Contact />
       </main>
       <Footer />
