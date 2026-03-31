@@ -1,15 +1,36 @@
-import { Twitter, Linkedin, Instagram, Youtube, ArrowUpRight } from 'lucide-react'
+import { Facebook, Linkedin, ArrowUpRight } from 'lucide-react'
 import { useTheme } from '../contexts/ThemeContext'
 import { useLang } from '../contexts/LangContext'
 
+// Custom TikTok Icon SVG because it's not in older lucide-react versions
+const TiktokIcon = ({ size = 24, className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+)
+
 const socials = [
-  { Icon: Twitter, href: '#', label: 'Twitter' },
+  { Icon: Facebook, href: '#', label: 'Facebook' },
+  { Icon: TiktokIcon, href: '#', label: 'TikTok' },
   { Icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { Icon: Instagram, href: '#', label: 'Instagram' },
-  { Icon: Youtube, href: '#', label: 'YouTube' },
 ]
 
-const quickLinks = ['Services', 'Our Work', 'Pricing', 'About', 'Blog', 'Careers']
+const quickLinks = [
+  { name: 'Services', href: '#services' },
+  { name: 'Our Work', href: '#work' },
+  { name: 'Contact Us', href: '#contact' },
+]
 
 export default function Footer() {
   const { isDark } = useTheme()
@@ -19,9 +40,9 @@ export default function Footer() {
   return (
     <footer className={`border-t ${border} pt-16 pb-8 px-6`}>
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-12 text-center sm:text-left">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 flex flex-col items-center sm:items-start">
             <div className="flex items-center gap-2.5 mb-5">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                 <span className="text-white font-black text-sm">O</span>
@@ -31,7 +52,7 @@ export default function Footer() {
             <p className={`text-sm leading-relaxed max-w-xs mb-6 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
               {t.footer.tagline}
             </p>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 justify-center sm:justify-start">
               {socials.map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -50,13 +71,13 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="flex flex-col items-center sm:items-start">
             <h4 className={`font-bold text-sm mb-5 ${isDark ? 'text-white' : 'text-slate-900'}`}>{t.footer.links}</h4>
             <ul className="space-y-3">
-              {quickLinks.slice(0, 4).map(link => (
-                <li key={link}>
-                  <a href="#" className={`text-sm transition-colors duration-200 hover:text-blue-400 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
-                    {link}
+              {quickLinks.map(link => (
+                <li key={link.name}>
+                  <a href={link.href} className={`text-sm transition-colors duration-200 hover:text-blue-400 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -64,28 +85,28 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="flex flex-col items-center sm:items-start">
             <h4 className={`font-bold text-sm mb-5 ${isDark ? 'text-white' : 'text-slate-900'}`}>{t.footer.contact}</h4>
-            <ul className="space-y-3">
-              <li className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>hello@orvian.agency</li>
-              <li className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>+1 (555) 000-0000</li>
-              <li className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>Dubai, UAE</li>
-              <li className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>Cairo, Egypt</li>
+            <ul className="space-y-3 text-center sm:text-left">
+              <li className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>fahmy@orvian.agency</li>
+              <li className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'} font-sans`}>+201027899375</li>
             </ul>
             <a
-              href="#contact"
-              className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+              href="https://wa.me/201027899375"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-blue-500 hover:text-blue-400 transition-colors"
             >
               Get in touch <ArrowUpRight size={14} />
             </a>
           </div>
         </div>
 
-        <div className={`border-t ${border} pt-8 flex flex-col sm:flex-row items-center justify-between gap-4`}>
-          <p className={`text-xs ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>{t.footer.copy}</p>
-          <div className="flex items-center gap-6">
-            <a href="#" className={`text-xs transition-colors ${isDark ? 'text-slate-600 hover:text-slate-400' : 'text-slate-400 hover:text-slate-600'}`}>Privacy</a>
-            <a href="#" className={`text-xs transition-colors ${isDark ? 'text-slate-600 hover:text-slate-400' : 'text-slate-400 hover:text-slate-600'}`}>Terms</a>
+        <div className={`border-t ${border} pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left`}>
+          <p className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{t.footer.copy}</p>
+          <div className="flex items-center justify-center gap-6">
+            <a href="#" className={`text-xs transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600'}`}>Privacy</a>
+            <a href="#" className={`text-xs transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600'}`}>Terms</a>
           </div>
         </div>
       </div>

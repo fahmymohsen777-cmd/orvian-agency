@@ -42,9 +42,8 @@ export default function Contact() {
 
             <div className="space-y-5">
               {[
-                { Icon: Mail, label: 'hello@orvian.agency' },
-                { Icon: Phone, label: '+1 (555) 000-0000' },
-                { Icon: MapPin, label: 'Dubai, UAE & Cairo, Egypt' },
+                { Icon: Mail, label: 'fahmy@orvian.agency' },
+                { Icon: Phone, label: '+201027899375' },
               ].map(({ Icon, label }, i) => (
                 <motion.div
                   key={i}

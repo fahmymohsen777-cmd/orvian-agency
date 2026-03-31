@@ -87,7 +87,9 @@ export default function Navbar() {
 
             {/* CTA */}
             <a
-              href="#contact"
+              href="https://wa.me/201027899375"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-bold glow-blue hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] transition-all duration-300"
             >
               {t.nav.cta}
@@ -133,7 +135,7 @@ export default function Navbar() {
                   {isDark ? <Sun size={16} /> : <Moon size={16} />}
                 </button>
               </div>
-              <a href="#contact" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-1.5 px-5 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-bold glow-blue">
+              <a href="https://wa.me/201027899375" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-1.5 px-5 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-bold glow-blue">
                 {t.nav.cta} <ArrowUpRight size={14} />
               </a>
             </div>

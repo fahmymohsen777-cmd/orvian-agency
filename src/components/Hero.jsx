@@ -5,7 +5,7 @@ import { useTheme } from '../contexts/ThemeContext'
 import { useLang } from '../contexts/LangContext'
 
 /* ──────────────── Magnetic Button ──────────────── */
-function MagneticButton({ children, className, href }) {
+function MagneticButton({ children, className, href, ...props }) {
   const ref = useRef(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
@@ -21,7 +21,7 @@ function MagneticButton({ children, className, href }) {
 
   return (
     <motion.a
-      ref={ref} href={href}
+      ref={ref} href={href} {...props}
       style={{ x: sx, y: sy }}
       onMouseMove={onMove} onMouseLeave={onLeave}
       whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
@@ -169,7 +169,9 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <MagneticButton
-            href="#contact"
+            href="https://wa.me/201027899375"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-white font-bold text-base glow-blue hover:shadow-[0_0_40px_rgba(99,102,241,0.65)] transition-shadow duration-300 w-full sm:w-auto justify-center"
           >
             {t.hero.cta1}
