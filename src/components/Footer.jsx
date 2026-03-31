@@ -44,9 +44,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2 flex flex-col items-center sm:items-start">
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <span className="text-white font-black text-sm">O</span>
-              </div>
+              <img 
+                src="/orvian-logo.png" 
+                alt="ORVIAN Logo" 
+                className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(59,130,246,0.2)]"
+              />
               <span className={`font-black text-xl ${isDark ? 'text-white' : 'text-slate-900'}`}>ORVIAN</span>
             </div>
             <p className={`text-sm leading-relaxed max-w-xs mb-6 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
