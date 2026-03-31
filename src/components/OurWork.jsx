@@ -5,7 +5,7 @@ import { ExternalLink, ArrowUpRight } from 'lucide-react'
 
 const projects = [
   {
-    name: 'Hashtag Agency',
+    name: 'Hashtag',
     tag: 'Digital Marketing',
     url: 'https://www.hashtag-eg.net/',
     img: '/portfolio/hashtag.png',
