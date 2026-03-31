@@ -21,8 +21,8 @@ const TiktokIcon = ({ size = 24, className }) => (
 )
 
 const socials = [
-  { Icon: Facebook, href: '#', label: 'Facebook' },
-  { Icon: TiktokIcon, href: '#', label: 'TikTok' },
+  { Icon: Facebook, href: 'https://www.facebook.com/share/1Ao93c4yyk/', label: 'Facebook' },
+  { Icon: TiktokIcon, href: 'https://www.tiktok.com/@orvian.agency?_r=1&_t=ZS-958OEYj6x0x', label: 'TikTok' },
   { Icon: Linkedin, href: '#', label: 'LinkedIn' },
 ]
 
@@ -59,6 +59,8 @@ export default function Footer() {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:-translate-y-1 ${
                     isDark
