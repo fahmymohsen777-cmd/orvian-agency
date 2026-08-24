@@ -38,7 +38,7 @@ export default function Navbar() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
             <img 
@@ -51,8 +51,8 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop Links - Perfectly Centered */}
+          <div className="hidden md:flex items-center gap-8 md:absolute md:left-1/2 md:-translate-x-1/2">
             {navLinks.map(l => (
               <a key={l.key} href={l.href} className={linkClass}>{t.nav[l.key]}</a>
             ))}
