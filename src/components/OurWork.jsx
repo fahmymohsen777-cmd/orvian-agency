@@ -6,49 +6,25 @@ import { ExternalLink, ArrowUpRight } from 'lucide-react'
 const projects = [
   {
     name: 'Hashtag',
-    tag: 'Digital Marketing',
+    tagKey: 'marketing',
     url: 'https://www.hashtag-eg.net/',
     img: '/portfolio/hashtag.png',
   },
   {
     name: 'iHRS',
-    tag: 'HR Services Platform',
+    tagKey: 'hr',
     url: 'http://ihrs-eg.com/',
     img: '/portfolio/ihrs.png',
   },
   {
-    name: 'Space App',
-    tag: 'Web Application',
-    url: 'https://space-iota-amber.vercel.app/',
-    img: '/portfolio/space.png',
-  },
-  {
-    name: 'CV Builder Pro',
-    tag: 'Career Tools',
-    url: 'https://cv2-github-io-7v57.vercel.app/',
-    img: '/portfolio/cv2.png',
-  },
-  {
-    name: 'CV Build',
-    tag: 'Resume Platform',
-    url: 'https://cv-bulid.vercel.app/',
-    img: '/portfolio/cvbuild.png',
-  },
-  {
     name: 'Abo Naem',
-    tag: 'Services Website',
+    tagKey: 'services',
     url: 'http://abo-naem.vercel.app/',
     img: '/portfolio/abonautm.png',
   },
   {
-    name: 'CV Bank',
-    tag: 'AI-Powered Recruitment',
-    url: 'https://cvbankf.vercel.app/',
-    img: '/portfolio/cvbank.png',
-  },
-  {
     name: 'Armenia Tours',
-    tag: 'Travel & Tourism',
+    tagKey: 'tourism',
     url: 'https://armenia-three.vercel.app/',
     img: '/portfolio/armenia.png',
   },
@@ -89,16 +65,16 @@ export default function OurWork() {
           transition={{ duration: 0.7 }}
         >
           <span className={`inline-block text-xs font-bold tracking-[0.25em] uppercase mb-4 px-4 py-1.5 rounded-full ${isDark ? 'text-blue-400 bg-blue-500/10 border border-blue-500/20' : 'text-blue-600 bg-blue-50 border border-blue-200'}`}>
-            Our Portfolio
+            {t.work.badge}
           </span>
           <h2 className={`text-4xl md:text-5xl lg:text-6xl font-black mb-5 leading-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            Work We're{' '}
+            {t.work.title1}{' '}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Proud Of
+              {t.work.title2}
             </span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-            Real projects. Real results. Built from the ground up with precision and creativity.
+            {t.work.sub}
           </p>
         </motion.div>
 
@@ -148,7 +124,7 @@ export default function OurWork() {
                 {/* Card Body */}
                 <div className="p-4">
                   <span className={`text-xs font-semibold tracking-wide uppercase ${isDark ? 'text-blue-400' : 'text-blue-500'}`}>
-                    {p.tag}
+                    {t.work.tags[p.tagKey]}
                   </span>
                   <h3 className={`font-bold text-base mt-1 mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
                     {p.name}
@@ -164,7 +140,7 @@ export default function OurWork() {
                         : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500 shadow-sm hover:shadow-md'
                     }`}
                   >
-                    Visit Site
+                    {t.work.visit}
                     <ArrowUpRight size={15} className="transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </a>
                 </div>
