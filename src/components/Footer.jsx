@@ -1,4 +1,4 @@
-import { Facebook, Linkedin, ArrowUpRight } from 'lucide-react'
+import { Facebook, ArrowUpRight } from 'lucide-react'
 import { useTheme } from '../contexts/ThemeContext'
 import { useLang } from '../contexts/LangContext'
 
@@ -23,13 +23,12 @@ const TiktokIcon = ({ size = 24, className }) => (
 const socials = [
   { Icon: Facebook, href: 'https://www.facebook.com/share/1Ao93c4yyk/', label: 'Facebook' },
   { Icon: TiktokIcon, href: 'https://www.tiktok.com/@orvian.agency?_r=1&_t=ZS-958OEYj6x0x', label: 'TikTok' },
-  { Icon: Linkedin, href: '#', label: 'LinkedIn' },
 ]
 
 const quickLinks = [
-  { name: 'Services', href: '#services' },
-  { name: 'Our Work', href: '#work' },
-  { name: 'Contact Us', href: '#contact' },
+  { key: 'services', href: '#services' },
+  { key: 'work', href: '#work' },
+  { key: 'contact', href: '#contact' },
 ]
 
 export default function Footer() {
@@ -79,9 +78,9 @@ export default function Footer() {
             <h4 className={`font-bold text-sm mb-5 ${isDark ? 'text-white' : 'text-slate-900'}`}>{t.footer.links}</h4>
             <ul className="space-y-3">
               {quickLinks.map(link => (
-                <li key={link.name}>
+                <li key={link.key}>
                   <a href={link.href} className={`text-sm transition-colors duration-200 hover:text-blue-400 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                    {link.name}
+                    {t.nav[link.key]}
                   </a>
                 </li>
               ))}
@@ -101,7 +100,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-blue-500 hover:text-blue-400 transition-colors"
             >
-              Get in touch <ArrowUpRight size={14} />
+              {t.footer.cta} <ArrowUpRight size={14} />
             </a>
           </div>
         </div>
@@ -109,8 +108,8 @@ export default function Footer() {
         <div className={`border-t ${border} pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left`}>
           <p className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{t.footer.copy}</p>
           <div className="flex items-center justify-center gap-6">
-            <a href="#" className={`text-xs transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600'}`}>Privacy</a>
-            <a href="#" className={`text-xs transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600'}`}>Terms</a>
+            <a href="#" className={`text-xs transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600'}`}>{t.footer.privacy}</a>
+            <a href="#" className={`text-xs transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600'}`}>{t.footer.terms}</a>
           </div>
         </div>
       </div>
