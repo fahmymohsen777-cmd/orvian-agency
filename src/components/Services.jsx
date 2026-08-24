@@ -1,19 +1,20 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Code2, Megaphone, Palette, Bot, ExternalLink } from 'lucide-react'
+import { Code2, Megaphone, Palette, Bot, MapPin, ExternalLink } from 'lucide-react'
 import { useTheme } from '../contexts/ThemeContext'
 import { useLang } from '../contexts/LangContext'
 
-const icons = [Code2, Megaphone, Palette, Bot]
+const icons = [Code2, Megaphone, Palette, Bot, MapPin]
 
 const config = [
   { gradient: 'from-blue-500 to-cyan-400',    border: 'rgba(59,130,246,0.8)',  shadow: 'rgba(59,130,246,0.2)'  },
   { gradient: 'from-pink-500 to-rose-400',    border: 'rgba(236,72,153,0.8)',  shadow: 'rgba(236,72,153,0.2)'  },
   { gradient: 'from-violet-500 to-purple-400',border: 'rgba(139,92,246,0.8)', shadow: 'rgba(139,92,246,0.2)'  },
   { gradient: 'from-amber-500 to-orange-400', border: 'rgba(245,158,11,0.8)', shadow: 'rgba(245,158,11,0.2)'  },
+  { gradient: 'from-emerald-500 to-teal-400', border: 'rgba(16,185,129,0.8)', shadow: 'rgba(16,185,129,0.2)' },
 ]
 
-function ServiceCard({ service, index, isDark }) {
+function ServiceCard({ service, index, isDark, t }) {
   const [hovered, setHovered] = useState(false)
   const Icon = icons[index]
   const { gradient, border, shadow } = config[index]
@@ -66,7 +67,7 @@ function ServiceCard({ service, index, isDark }) {
         </p>
 
         <div className={`flex items-center gap-1.5 text-xs font-semibold bg-gradient-to-r ${gradient} bg-clip-text text-transparent transition-all duration-200 ${hovered ? 'gap-2.5' : ''}`}>
-          Learn more <ExternalLink size={12} />
+          {t.services.learnMore} <ExternalLink size={12} />
         </div>
       </div>
     </motion.div>
@@ -91,7 +92,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className={`text-3xl sm:text-4xl md:text-5xl font-black mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}
           >
-            What We <span className="gradient-text">Build</span>
+            {t.services.heading1} <span className="gradient-text">{t.services.heading2}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
@@ -101,9 +102,9 @@ export default function Services() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {t.services.items.map((service, i) => (
-            <ServiceCard key={i} service={service} index={i} isDark={isDark} />
+            <ServiceCard key={i} service={service} index={i} isDark={isDark} t={t} />
           ))}
         </div>
       </div>
