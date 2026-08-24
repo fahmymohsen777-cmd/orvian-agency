@@ -24,20 +24,20 @@ export default function Contact() {
               initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="text-xs font-semibold tracking-[0.2em] uppercase text-blue-400 mb-4"
             >
-              {t.footer.contact}
+              {t.contact.badge}
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className={`text-4xl sm:text-5xl font-black mb-5 leading-tight ${isDark ? 'text-white' : 'text-slate-900'}`}
             >
-              Let's Build Something
-              <span className="gradient-text"> Legendary</span>
+              {t.contact.title1}{' '}
+              <span className="gradient-text">{t.contact.title2}</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               className={`text-base leading-relaxed mb-10 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}
             >
-              Have a project in mind? Reach out and let's explore the possibilities together.
+              {t.contact.sub}
             </motion.p>
 
             <div className="space-y-5">
@@ -67,27 +67,26 @@ export default function Contact() {
             <form className="space-y-4" onSubmit={e => e.preventDefault()}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Name</label>
-                  <input type="text" placeholder="John Doe" className={inputClass} />
+                  <label className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{t.contact.name}</label>
+                  <input type="text" placeholder={t.contact.namePlaceholder} className={inputClass} />
                 </div>
                 <div>
-                  <label className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Email</label>
-                  <input type="email" placeholder="hello@co.com" className={inputClass} />
+                  <label className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{t.contact.email}</label>
+                  <input type="email" placeholder={t.contact.emailPlaceholder} className={inputClass} />
                 </div>
               </div>
               <div>
-                <label className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Service</label>
+                <label className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{t.contact.service}</label>
                 <select className={`${inputClass} cursor-pointer`} style={{ backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : '#f8fafc' }}>
-                  <option value="">Select a service...</option>
-                  <option>Web & SaaS Development</option>
-                  <option>Social Media Management</option>
-                  <option>Branding & Design</option>
-                  <option>AI Tools & Automation</option>
+                  <option value="">{t.contact.servicePlaceholder}</option>
+                  {t.contact.servicesList.map((s, idx) => (
+                    <option key={idx} value={s}>{s}</option>
+                  ))}
                 </select>
               </div>
               <div>
-                <label className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Message</label>
-                <textarea rows={4} placeholder="Tell us about your project..." className={`${inputClass} resize-none`} />
+                <label className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{t.contact.message}</label>
+                <textarea rows={4} placeholder={t.contact.messagePlaceholder} className={`${inputClass} resize-none`} />
               </div>
               <motion.button
                 type="submit"
@@ -96,7 +95,7 @@ export default function Contact() {
                 className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold text-sm glow-blue transition-shadow duration-300"
               >
                 <Send size={15} />
-                Send Message
+                {t.contact.submit}
                 <ArrowRight size={15} />
               </motion.button>
             </form>
