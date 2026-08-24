@@ -196,7 +196,7 @@ export default function Hero() {
           variants={fadeUp} initial="hidden" animate="show" custom={4}
           className="flex flex-wrap items-center justify-center gap-6 mt-14"
         >
-          {['⚡ Fast Delivery', '🔒 Secure & Legal', '🌍 Global Reach', '🤖 AI-Powered'].map((b, i) => (
+          {t.hero.badges.map((b, i) => (
             <span key={i} className={`text-xs font-medium ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
               {b}
             </span>
